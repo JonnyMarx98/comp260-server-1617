@@ -19,14 +19,22 @@ namespace Server
             s.Bind(ipLocal);
             s.Listen(4);
 
-            Console.WriteLine("Waiting for client ...");
-            
+            var dungeon = new Dungeon();
+
+            dungeon.Init();
+
+            dungeon.Process(" ");
+
+            //Console.WriteLine("Waiting for client ...");
+
             Socket newConnection = s.Accept();
             if (newConnection != null)
             {            
                 while (true)
                 {
                     byte[] buffer = new byte[4096];
+
+                    //dungeon.Process(" ");
 
                     try
                     {
@@ -38,12 +46,16 @@ namespace Server
                             String recdMsg = encoder.GetString(buffer, 0, result);
 
                             Console.WriteLine("Received: " + recdMsg);
+
+                            dungeon.Process(recdMsg);
+
                         }
                     }
                     catch (System.Exception ex)
                     {
                         Console.WriteLine(ex);    	
-                    }                    
+                    }
+
                 }
             }
         }

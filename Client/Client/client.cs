@@ -36,15 +36,17 @@ namespace Client
 
             while (true)
             {
-                String Msg = ID.ToString() + " testing, testing, 1,2,3";
+                String ClientText = Console.ReadLine();
+                String Msg = ID.ToString() + ClientText;//  " testing, testing, 1,2,3";
                 ID++;
                 ASCIIEncoding encoder = new ASCIIEncoding();
-                byte[] buffer = encoder.GetBytes(Msg);
+                byte[] buffer = encoder.GetBytes(ClientText);
 
                 try
                 {
-                    Console.WriteLine("Writing to server: " + Msg);
+                    Console.WriteLine("Writing to server: " + ClientText);
                     int bytesSent = s.Send(buffer);
+                    
                 }
                 catch (System.Exception ex)
                 {
@@ -52,7 +54,7 @@ namespace Client
                 }
                 
 
-                Thread.Sleep(1000);
+                Thread.Sleep(1);
             }
         }
     }
