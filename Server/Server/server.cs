@@ -14,7 +14,6 @@ namespace Server
         {
 
             var dungeon = new Dungeon();
-
             dungeon.Init();
 
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -58,7 +57,7 @@ namespace Server
                             byte[] sendBuffer = encoder.GetBytes(dungeonResult);
 
                             int bytesSent = newConnection.Send(sendBuffer);
-                            //newConnection.Send(sendBuffer);
+                            Console.WriteLine("\nWriting to Client ");
 
                             
 

@@ -13,18 +13,22 @@ namespace Client
     {
         static void Main(string[] args)
         {
+
+            string ipAdress = "127.0.0.1";
+            int port = 8221;
+
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint ipLocal = new IPEndPoint(IPAddress.Parse(ipAdress), port);
 
-            IPEndPoint ipLocal = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8221);
-
-			bool connected = false;
+            bool connected = false;
 
 			while (connected == false) 
 			{
-                //byte[] receiveBuffer = new byte[4096];
                 try 
 				{
 					s.Connect (ipLocal);
+                    Console.WriteLine("Connected To Server \nWelcome To my MUD! \nType help");
+
 					connected = true;
 				} 
 				catch (Exception) 
@@ -40,7 +44,7 @@ namespace Client
             while (true)
             {
                 String ClientText = Console.ReadLine();
-                String Msg = ID.ToString() + ClientText;//  " testing, testing, 1,2,3";
+                String Msg = ID.ToString() + " : " +ClientText;//  " testing, testing, 1,2,3";
                 ID++;
                 ASCIIEncoding encoder = new ASCIIEncoding();
                 byte[] buffer = encoder.GetBytes(ClientText);
