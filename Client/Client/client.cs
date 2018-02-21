@@ -21,7 +21,8 @@ namespace Client
 
 			while (connected == false) 
 			{
-				try 
+                //byte[] receiveBuffer = new byte[4096];
+                try 
 				{
 					s.Connect (ipLocal);
 					connected = true;
@@ -34,6 +35,8 @@ namespace Client
 
             int ID = 0;
 
+
+            //Socket ServerResult = s.Accept();
             while (true)
             {
                 String ClientText = Console.ReadLine();
@@ -42,11 +45,25 @@ namespace Client
                 ASCIIEncoding encoder = new ASCIIEncoding();
                 byte[] buffer = encoder.GetBytes(ClientText);
 
+
+                
                 try
                 {
                     Console.WriteLine("Writing to server: " + ClientText);
                     int bytesSent = s.Send(buffer);
-                    
+
+
+                    buffer = new byte[4096];
+                    int reciever = s.Receive(buffer);
+                    //s.Receive(buffer);
+                    if (reciever > 0)
+                    {
+                        String userCmd = encoder.GetString(buffer, 0, reciever);
+                        Console.WriteLine(userCmd);
+                    }
+
+
+
                 }
                 catch (System.Exception ex)
                 {
@@ -54,7 +71,7 @@ namespace Client
                 }
                 
 
-                Thread.Sleep(1);
+                //Thread.Sleep(1);
             }
         }
     }
