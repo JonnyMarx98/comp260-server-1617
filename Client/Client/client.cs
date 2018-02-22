@@ -16,7 +16,7 @@ namespace Client
 
             string ipAdress = "127.0.0.1";
             int port = 8221;
-
+            //
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint ipLocal = new IPEndPoint(IPAddress.Parse(ipAdress), port);
 
