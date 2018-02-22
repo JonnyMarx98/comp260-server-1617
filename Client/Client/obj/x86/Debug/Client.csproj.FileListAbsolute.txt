@@ -16,3 +16,9 @@ D:\comp260-server-1617\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyR
 D:\comp260-server-1617\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
 D:\comp260-server-1617\Client\Client\obj\x86\Debug\Client.exe
 D:\comp260-server-1617\Client\Client\obj\x86\Debug\Client.pdb
+D:\comp260-server-1617Jon\Client\Client\bin\Debug\Client.exe
+D:\comp260-server-1617Jon\Client\Client\bin\Debug\Client.pdb
+D:\comp260-server-1617Jon\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+D:\comp260-server-1617Jon\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
+D:\comp260-server-1617Jon\Client\Client\obj\x86\Debug\Client.exe
+D:\comp260-server-1617Jon\Client\Client\obj\x86\Debug\Client.pdb

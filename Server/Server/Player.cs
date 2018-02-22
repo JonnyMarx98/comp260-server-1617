@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Server
 {
-    class Player
+    public class Player
     {
         public Dungeon dungeonRef;
         public Room currentRoom;
@@ -13,7 +13,7 @@ namespace Server
         public void Init()
         {
             currentRoom = dungeonRef.roomMap["Room 0"];
-            Console.WriteLine("here");
+            //Console.WriteLine("here");
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Server
 {
     public class Dungeon
     {        
-        Dictionary<String, Room> roomMap;
+        public Dictionary<String, Room> roomMap;
 
         Room currentRoom;
 
@@ -176,8 +176,9 @@ namespace Server
             currentRoom = roomMap["Room 0"];
         }
 
-        public String SendInfo()
+        public String SendInfo(Player player)
         {
+            currentRoom = player.currentRoom;
             String info = "";
             info += currentRoom.desc;
             info += "\nExits\n";
@@ -192,12 +193,11 @@ namespace Server
 
         }
 
-        public string Process(string Key)
-        {            
+        public string Process(string Key, Player player, int PlayerID)
+        {
+            currentRoom = player.currentRoom;
             String returnString = "";
             var input = Key.Split(' ');
-
-            //returnString += ("\n> ");
 
             switch (input[0].ToLower())
             {
@@ -221,43 +221,42 @@ namespace Server
 
                 case "look":
                     Thread.Sleep(1000);
-                    returnString += SendInfo();
+                    returnString += SendInfo(player);
                     return returnString;
 
                 case "say":
-                    returnString += ("You say ");
+                    returnString += ("Player " + PlayerID + " : ");
                     for (var i = 1; i < input.Length; i++)
                     {
                         returnString += (input[i] + " ");
                     }
 
                     Thread.Sleep(1000);
-                    returnString += SendInfo();
+                    returnString += SendInfo(player);
                     return returnString;
 
                 case "go":
-                    // is arg[1] sensible?
                     if ((input[1].ToLower() == "north") && (currentRoom.north != null))
                     {
-                        currentRoom = roomMap[currentRoom.north];
+                        player.currentRoom = roomMap[currentRoom.north];
                     }
                     else
                     {
                         if ((input[1].ToLower() == "south") && (currentRoom.south != null))
                         {
-                            currentRoom = roomMap[currentRoom.south];
+                            player.currentRoom = roomMap[currentRoom.south];
                         }
                         else
                         {
                             if ((input[1].ToLower() == "east") && (currentRoom.east != null))
                             {
-                                currentRoom = roomMap[currentRoom.east];
+                                player.currentRoom = roomMap[currentRoom.east];
                             }
                             else
                             {
                                 if ((input[1].ToLower() == "west") && (currentRoom.west != null))
                                 {
-                                    currentRoom = roomMap[currentRoom.west];
+                                    player.currentRoom = roomMap[currentRoom.west];
                                 }
                                 else
                                 {
@@ -265,13 +264,12 @@ namespace Server
                                     returnString += ("\nERROR");
                                     returnString += ("\nCan not go " + input[1]+ " from here");
                                     returnString += ("\nPress any key to continue");
-                                    //Console.ReadKey(true);
+
                                 }
                             }
                         }
-                        //return returnString;
                     }
-                    returnString += SendInfo();
+                    returnString += SendInfo(player);
                     return returnString;
 
                 default:

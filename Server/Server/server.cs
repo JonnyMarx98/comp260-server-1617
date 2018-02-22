@@ -8,7 +8,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    class server
+    public class server
     {
 
         static bool quit = false;
@@ -16,6 +16,9 @@ namespace Server
 
         static Dictionary<String, Socket> clientDictionary = new Dictionary<String, Socket>();
         static int clientID = 1;
+
+        static List<Player> PlayerList = new List<Player>(); // Player List
+        static Dungeon dungeon = new Dungeon(); // Dungeon
 
         class ReceiveThreadLaunchInfo
         {
@@ -49,8 +52,14 @@ namespace Server
 
                     String clientName = "client" + clientID;
                     clientDictionary.Add(clientName, newClientSocket);
+                    Console.WriteLine(clientName + ": Connected");
+                    var player = new Player
+                    {
+                        dungeonRef = dungeon
+                    };
+                    player.Init();
+                    PlayerList.Add(player);
                     Thread.Sleep(500);
-                    var player = new Player();
                     clientID++;
                 }
             }
@@ -114,7 +123,6 @@ namespace Server
         {
             ASCIIEncoding encoder = new ASCIIEncoding();
 
-            var dungeon = new Dungeon(); // Initialise Dungeon
             dungeon.Init();
 
             string ipAdress = "127.0.0.1";
@@ -134,8 +142,8 @@ namespace Server
 
 
             //Socket newConnection = serverSocket.Accept();
-            var dungeonResult = (dungeon.SendInfo());
-            byte[] sendBuffer = encoder.GetBytes(dungeonResult); // Send Dungeon back to client
+            //var dungeonResult = (dungeon.SendInfo());
+            //byte[] sendBuffer = encoder.GetBytes(dungeonResult); // Send Dungeon back to client
             byte[] buffer = new byte[4096];
 
 
@@ -199,12 +207,26 @@ namespace Server
                     Char delimiter = ':';
                     String[] substrings = labelToPrint.Split(delimiter);
 
-                    dungeonResult = dungeon.Process(substrings[1]);
+                    int PlayerID = Int32.Parse(substrings[0]) - 1;
+                    var dungeonResult = dungeon.Process(substrings[1], PlayerList[PlayerID], PlayerID);
                     Console.WriteLine(dungeonResult);
 
-                    sendBuffer = encoder.GetBytes(dungeonResult); // this is sending back to client
+                    byte[] sendBuffer = encoder.GetBytes(dungeonResult); // Send result back to client
 
-                    int bytesSent = GetSocketFromName("client" + substrings[0]).Send(sendBuffer);
+                    String dung = dungeonResult.Substring(0, 6);
+                    if (dung == "Player")
+                    {
+                        for (int i = 1; i <= clientDictionary.Count ; i++)
+                        {
+                            int bytesSent = GetSocketFromName("client" + i).Send(sendBuffer);
+                        }
+                    }
+                    else
+                    {
+                        int bytesSent = GetSocketFromName("client" + substrings[0]).Send(sendBuffer);
+                    }
+
+                    
                 }
 
                 Thread.Sleep(1);
