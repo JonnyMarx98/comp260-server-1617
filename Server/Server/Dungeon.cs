@@ -176,31 +176,28 @@ namespace Server
             currentRoom = roomMap["Room 0"];
         }
 
-        public string Process(string Key)
+        public String SendInfo()
         {
+            String info = "";
+            info += currentRoom.desc;
+            info += "\nExits\n";
+            for (var i = 0; i < currentRoom.exits.Length; i++)
+            {
+                if (currentRoom.exits[i] != null)
+                {
+                    info += (Room.exitNames[i] + " ");
+                }
+            }
+            return info;
 
-            //Console.Clear();
+        }
 
-            
+        public string Process(string Key)
+        {            
             String returnString = "";
             var input = Key.Split(' ');
 
-            //returnString += ("\n" + currentRoom.desc);
-            //returnString += ("\nExits");
-            //for (var i = 0; i < currentRoom.exits.Length; i++)
-            //{
-            //    if (currentRoom.exits[i] != null)
-            //    {
-            //        returnString += (" " + Room.exitNames[i] + " ");
-            //    }
-            //}
-
-            returnString += ("\n> ");
-
-            //var key = Console.ReadLine();
-
-
-            //var input = Key.Split(' ');
+            //returnString += ("\n> ");
 
             switch (input[0].ToLower())
             {
@@ -211,7 +208,6 @@ namespace Server
                     returnString += ("look - to look around");
                     returnString += ("go [north | south | east | west]  - to travel between locations");
                     returnString += ("\nPress any key to continue");
-                    //Console.ReadKey(true);
                     returnString += ("\n" + currentRoom.desc);
                     returnString += ("\nExits");
                     for (var i = 0; i < currentRoom.exits.Length; i++)
@@ -224,18 +220,8 @@ namespace Server
                     return returnString;
 
                 case "look":
-                    //loop straight back
-                    //Console.Clear();
                     Thread.Sleep(1000);
-                    returnString += ("\n" + currentRoom.desc);
-                    returnString += ("\nExits");
-                    for (var i = 0; i < currentRoom.exits.Length; i++)
-                    {
-                        if (currentRoom.exits[i] != null)
-                        {
-                            returnString += (" " + Room.exitNames[i] + " ");
-                        }
-                    }
+                    returnString += SendInfo();
                     return returnString;
 
                 case "say":
@@ -246,16 +232,7 @@ namespace Server
                     }
 
                     Thread.Sleep(1000);
-                    //Console.Clear();
-                    returnString += ("\n" + currentRoom.desc);
-                    returnString += ("\nExits");
-                    for (var i = 0; i < currentRoom.exits.Length; i++)
-                    {
-                        if (currentRoom.exits[i] != null)
-                        {
-                            returnString += (" " + Room.exitNames[i] + " ");
-                        }
-                    }
+                    returnString += SendInfo();
                     return returnString;
 
                 case "go":
@@ -294,23 +271,14 @@ namespace Server
                         }
                         //return returnString;
                     }
-                    returnString += ("\n" + currentRoom.desc);
-                    returnString += ("\nExits");
-                    for (var i = 0; i < currentRoom.exits.Length; i++)
-                    {
-                        if (currentRoom.exits[i] != null)
-                        {
-                            returnString += (" " + Room.exitNames[i]);
-                        }
-                    }
+                    returnString += SendInfo();
                     return returnString;
 
                 default:
-                    //handle error
                     returnString += ("\nERROR");
                     returnString += ("\nCan not " + Key);
                     returnString += ("\nPress any key to continue");
-                    //Console.ReadKey(true);
+                    
                     return returnString;
             }
 
