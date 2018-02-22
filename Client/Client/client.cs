@@ -11,6 +11,35 @@ namespace Client
 {
     class client
     {
+        static bool quit = false;
+        static LinkedList<String> incommingMessages = new LinkedList<string>();
+
+        static void serverReceiveThread(Object obj)
+        {
+            ASCIIEncoding encoder = new ASCIIEncoding();
+            byte[] receiveBuffer = new byte[8192];
+
+            Socket s = obj as Socket;
+
+            while (true)
+            {
+                try
+                {
+                    int reciever = s.Receive(receiveBuffer);
+                    s.Receive(receiveBuffer);
+                    if (reciever > 0)
+                    {
+                        String userCmd = encoder.GetString(receiveBuffer, 0, reciever);
+                        Console.WriteLine(userCmd);
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
 
@@ -40,16 +69,19 @@ namespace Client
             int ID = 0;
 
 
+            var myThread = new Thread(serverReceiveThread);
+            myThread.Start(s);
+
+            ASCIIEncoding encoder = new ASCIIEncoding();
+            byte[] buffer = new byte[4096];
+
             //Socket ServerResult = s.Accept();
             while (true)
             {
                 String ClientText = Console.ReadLine();
-                String Msg = ID.ToString() + " : " +ClientText;//  " testing, testing, 1,2,3";
+                //String Msg = ID.ToString() + " : " +ClientText;//  " testing, testing, 1,2,3";
                 ID++;
-                ASCIIEncoding encoder = new ASCIIEncoding();
-                byte[] buffer = encoder.GetBytes(ClientText);
-
-
+                buffer = encoder.GetBytes(ClientText);
                 
                 try
                 {
@@ -57,14 +89,14 @@ namespace Client
                     int bytesSent = s.Send(buffer);
 
 
-                    buffer = new byte[4096];
-                    int reciever = s.Receive(buffer);
-                    //s.Receive(buffer);
-                    if (reciever > 0)
-                    {
-                        String userCmd = encoder.GetString(buffer, 0, reciever);
-                        Console.WriteLine(userCmd);
-                    }
+                    //buffer = new byte[4096];
+                    //int reciever = s.Receive(buffer);
+                    ////s.Receive(buffer);
+                    //if (reciever > 0)
+                    //{
+                    //    String userCmd = encoder.GetString(buffer, 0, reciever);
+                    //    Console.WriteLine(userCmd);
+                    //}
 
 
 

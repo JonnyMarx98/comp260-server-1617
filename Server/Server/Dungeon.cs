@@ -228,11 +228,11 @@ namespace Server
                     returnString += ("Player " + PlayerID + " : ");
                     for (var i = 1; i < input.Length; i++)
                     {
-                        returnString += (input[i] + " ");
+                        returnString += (input[i] + "\n");
                     }
 
                     Thread.Sleep(1000);
-                    returnString += SendInfo(player);
+                    //returnString += SendInfo(player);
                     return returnString;
 
                 case "go":
