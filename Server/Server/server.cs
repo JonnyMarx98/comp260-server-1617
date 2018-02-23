@@ -15,7 +15,7 @@ namespace Server
 
         static Dictionary<String, Socket> clientDictionary = new Dictionary<String, Socket>(); // client dictionary which stores client name and socket 
 
-        static List<Player> PlayerList = new List<Player>(); // List of players
+        public static List<Player> PlayerList = new List<Player>(); // List of players
         static Dungeon dungeon = new Dungeon(); // Dungeon
 
         class ReceiveThreadLaunchInfo
@@ -52,7 +52,8 @@ namespace Server
                     var player = new Player
                     {
                         dungeonRef = dungeon,
-                        playerName = "Player" + ID
+                        playerName = "Player" + ID,
+                        clientID = clientName
                     };
                     player.Init();
                     PlayerList.Add(player);
@@ -122,7 +123,7 @@ namespace Server
             }
         }
 
-        static String chatMsg(string message)
+        static void globalChatMsg(string message)
         {
             lock (outMessages)
             {
@@ -132,7 +133,21 @@ namespace Server
                 }
             }
             Console.WriteLine(message);
-            return null;
+        }
+
+        static void localChatMsg(Player currentPlayer, string message)
+        {
+            foreach (Player player in PlayerList)
+            {
+                if (currentPlayer.currentRoom == player.currentRoom)
+                {
+                    lock (outMessages)
+                    {
+                        outMessages.AddLast(player.clientID + ":" + message);
+                    }
+                }
+            }
+            Console.WriteLine(message);
         }
 
 
@@ -209,10 +224,25 @@ namespace Server
 
                     var dungeonResult = dungeon.Process(clientMsg, player, PlayerID);
 
-                    if (clientMsg.Substring(0, 3) == "say")
+                    if (dungeonResult.Length > 7)
                     {
-                        chatMsg(dungeonResult);
+                        if (dungeonResult.Substring(0, 7) == "[local]")
+                        {
+                            localChatMsg(player, dungeonResult);
+                        }
+                        else if (dungeonResult.Substring(0, 8) == "[global]")
+                        {
+                            globalChatMsg(dungeonResult);
+                        }
+                        else
+                        {
+                            lock (outMessages)
+                            {
+                                outMessages.AddLast(theClient + ":" + dungeonResult);
+                            }
+                        }
                     }
+
                     else
                     {
                         Console.WriteLine(dungeonResult);

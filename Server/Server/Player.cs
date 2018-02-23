@@ -10,6 +10,7 @@ namespace Server
         public Dungeon dungeonRef;
         public Room currentRoom;
         public String playerName;
+        public String clientID;
 
         public void Init()
         {

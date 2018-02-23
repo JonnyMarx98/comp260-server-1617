@@ -176,9 +176,9 @@ namespace Server
             currentRoom = roomMap["Room 0"];
         }
 
-        public String DungeonInfo(Player player)
+        public String DungeonInfo(Player currentPlayer)
         {
-            currentRoom = player.currentRoom;
+            currentRoom = currentPlayer.currentRoom;
             String info = "";
             info += currentRoom.desc;
             info += "\nExits\n";
@@ -189,6 +189,35 @@ namespace Server
                     info += (Room.exitNames[i] + " ");
                 }
             }
+
+            int otherPlayers = 0;
+            
+            foreach (Player player in server.PlayerList)
+            {
+                
+                if (currentPlayer.currentRoom == player.currentRoom)
+                {                   
+                    if (player != currentPlayer)
+                    {
+                        otherPlayers++;
+                        if (otherPlayers == 1)
+                        {
+                            info += "\nOther players here ->";
+                            info += " [" + player.playerName + "]";
+                        }
+                        else
+                        {
+                            info += " [" + player.playerName + "]";
+                        }
+                    }                   
+                }
+            }
+
+            if (otherPlayers == 0)
+            {
+                info += "\nYou're alone!";
+            }
+
             return info;
 
         }
@@ -227,13 +256,25 @@ namespace Server
                     return returnString;
 
                 case "look":
+                    //Console.Clear();
+                    Thread.Sleep(500);
+                    returnString = DungeonInfo(player);
+                    return returnString;
+
+                case "local":
+                    returnString += ("[local][" + player.playerName + "]");
+                    for (var i = 1; i < input.Length; i++)
+                    {
+                        returnString += (input[i] + " ");
+                    }
+
                     Thread.Sleep(1000);
-                    returnString += DungeonInfo(player);
+                    //returnString += DungeonInfo(player);
                     return returnString;
 
                 case "say":
                     //returnString += ("[Player " + PlayerID + "]");
-                    returnString += ("[" + player.playerName + "]");
+                    returnString += ("[global][" + player.playerName + "]");
                     for (var i = 1; i < input.Length; i++)
                     {
                         returnString += (input[i] + " ");
