@@ -176,7 +176,7 @@ namespace Server
             currentRoom = roomMap["Room 0"];
         }
 
-        public String SendInfo(Player player)
+        public String DungeonInfo(Player player)
         {
             currentRoom = player.currentRoom;
             String info = "";
@@ -195,8 +195,9 @@ namespace Server
 
         public string Process(string Key, Player player, int PlayerID)
         {
-            currentRoom = player.currentRoom;
-            String returnString = "";
+            currentRoom = player.currentRoom; // Sets current room to the players current room
+            DungeonInfo(player); // Displays the dungeon info to player
+            String returnString = ""; 
             var input = Key.Split(' ');
 
             switch (input[0].ToLower())
@@ -204,35 +205,42 @@ namespace Server
                 case "help":
                     Console.Clear();
                     returnString += ("\nCommands are ....");
-                    returnString += ("help - for this screen");
-                    returnString += ("look - to look around");
-                    returnString += ("go [north | south | east | west]  - to travel between locations");
+                    returnString += ("\nhelp - for this screen");
+                    returnString += ("\nlook - to look around");
+                    returnString += ("\ngo [north | south | east | west]  - to travel between locations");
                     returnString += ("\nPress any key to continue");
+                    returnString += ("\nname - to set name your name");
                     returnString += ("\n" + currentRoom.desc);
                     returnString += ("\nExits");
-                    for (var i = 0; i < currentRoom.exits.Length; i++)
+
+                    //returnString += DungeonInfo(player);
+                    return returnString;
+
+                case "name":
+                    String newName = "";
+                    for (var i = 1; i < input.Length; i++)
                     {
-                        if (currentRoom.exits[i] != null)
-                        {
-                            returnString += (" " + Room.exitNames[i] + " ");
-                        }
+                        newName += (input[i]);
                     }
+                    player.playerName = (newName);
+                    returnString += ("\nYou set your name to --> " + newName);
                     return returnString;
 
                 case "look":
                     Thread.Sleep(1000);
-                    returnString += SendInfo(player);
+                    returnString += DungeonInfo(player);
                     return returnString;
 
                 case "say":
-                    returnString += ("Player " + PlayerID + " : ");
+                    //returnString += ("[Player " + PlayerID + "]");
+                    returnString += ("[" + player.playerName + "]");
                     for (var i = 1; i < input.Length; i++)
                     {
-                        returnString += (input[i] + "\n");
+                        returnString += (input[i] + " ");
                     }
 
                     Thread.Sleep(1000);
-                    //returnString += SendInfo(player);
+                    //returnString += DungeonInfo(player);
                     return returnString;
 
                 case "go":
@@ -269,7 +277,7 @@ namespace Server
                             }
                         }
                     }
-                    returnString += SendInfo(player);
+                    returnString += DungeonInfo(player);
                     return returnString;
 
                 default:

@@ -11,7 +11,6 @@ namespace Client
 {
     class client
     {
-        static bool quit = false;
         static LinkedList<String> incommingMessages = new LinkedList<string>();
 
         static void serverReceiveThread(Object obj)
@@ -29,8 +28,8 @@ namespace Client
                     s.Receive(receiveBuffer);
                     if (reciever > 0)
                     {
-                        String userCmd = encoder.GetString(receiveBuffer, 0, reciever);
-                        Console.WriteLine(userCmd);
+                        String clientMsg = encoder.GetString(receiveBuffer, 0, reciever);
+                        Console.WriteLine(clientMsg);
                     }
                 }
                 catch (System.Exception ex)
@@ -56,7 +55,7 @@ namespace Client
                 try 
 				{
 					s.Connect (ipLocal);
-                    Console.WriteLine("Connected To Server \nWelcome To my MUD! \nType help");
+                    Console.WriteLine("Connected To Server \nWelcome To my MUD! \nType help to see commands list");
 
 					connected = true;
 				} 
@@ -75,7 +74,6 @@ namespace Client
             ASCIIEncoding encoder = new ASCIIEncoding();
             byte[] buffer = new byte[4096];
 
-            //Socket ServerResult = s.Accept();
             while (true)
             {
                 String ClientText = Console.ReadLine();
