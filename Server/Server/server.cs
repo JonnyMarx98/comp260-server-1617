@@ -151,7 +151,7 @@ namespace Server
             serverSocket.Bind(ipLocal);
             serverSocket.Listen(4);
 
-            Console.WriteLine("Waiting for client ...");
+            Console.WriteLine("Waiting for client ..");
 
             var myThread = new Thread(acceptClientThread);
             myThread.Start(serverSocket);
