@@ -58,12 +58,20 @@ namespace Server
                     player.Init();
                     PlayerList.Add(player);
 
-                    var dungeonResult = dungeon.DungeonInfo(player);
+                    var dungeonResult = dungeon.DungeonInfo(player, true);
 
                     lock (outMessages)
                     {
                         outMessages.AddLast(clientName + ":" + dungeonResult);
                     }
+
+                    //lock (outMessages)
+                    //{
+                    //    foreach (KeyValuePair<String, Socket> client in clientDictionary)
+                    //    {
+                    //        outMessages.AddLast(client.Key + ":" + dungeonResult);
+                    //    }
+                    //}
                     //Thread.Sleep(500);
                     ID++;
                 }
@@ -148,6 +156,24 @@ namespace Server
                 }
             }
             Console.WriteLine(message);
+        }
+
+        public static void roomUpdate(Player player, Player newPlayer, bool enteredRoom)
+        {
+            lock (outMessages)
+            {
+                if(enteredRoom)
+                {
+                    outMessages.AddLast(player.clientID + ":" +
+                    "[" + newPlayer.playerName + "]" + " entered the room");
+                }
+                else
+                {
+                    outMessages.AddLast(player.clientID + ":" +
+                    "[" + newPlayer.playerName + "]" + " left the room");
+                }
+                
+            }
         }
 
 

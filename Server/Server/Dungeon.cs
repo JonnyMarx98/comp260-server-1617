@@ -176,21 +176,39 @@ namespace Server
             currentRoom = roomMap["Room 0"];
         }
 
-        public String DungeonInfo(Player currentPlayer)
+        public void roomUpdate(Player currentPlayer, Room previousRoom)
+        {
+            foreach (Player player in server.PlayerList)
+            {
+                if (player.currentRoom == previousRoom)
+                {
+                    server.roomUpdate(player, currentPlayer, false);
+                }
+            }
+        }
+
+        public String DungeonInfo(Player currentPlayer, bool enteredNewRoom)
         {
             currentRoom = currentPlayer.currentRoom;
+            
             String info = "";
-            info += currentRoom.desc;
-            info += "\nExits\n";
-            for (var i = 0; i < currentRoom.exits.Length; i++)
+            bool newPlayer = false;
+            if (enteredNewRoom)
             {
-                if (currentRoom.exits[i] != null)
+                currentRoom.PlayerCount += 1;
+                newPlayer = true;
+                info += currentRoom.desc;
+                info += "\nExits\n";
+                for (var i = 0; i < currentRoom.exits.Length; i++)
                 {
-                    info += (Room.exitNames[i] + " ");
+                    if (currentRoom.exits[i] != null)
+                    {
+                        info += (Room.exitNames[i] + " ");
+                    }
                 }
             }
 
-            int otherPlayers = 0;
+            int Players = 1;
             
             foreach (Player player in server.PlayerList)
             {
@@ -199,24 +217,37 @@ namespace Server
                 {                   
                     if (player != currentPlayer)
                     {
-                        otherPlayers++;
-                        if (otherPlayers == 1)
+                        
+                        Players++;
+                        if (Players == 2)
                         {
                             info += "\nOther players here ->";
                             info += " [" + player.playerName + "]";
+                            if (newPlayer)
+                            {
+                                server.roomUpdate(player, currentPlayer, true);
+
+                            }
                         }
                         else
                         {
                             info += " [" + player.playerName + "]";
+                            if (newPlayer)
+                            {
+                                server.roomUpdate(player, currentPlayer, true);
+                            }
                         }
-                    }                   
+                    }
                 }
             }
 
-            if (otherPlayers == 0)
-            {
-                info += "\nYou're alone!";
-            }
+            if (Players == 1) { info += "\nYou're alone!\n"; }
+            else { info+= "\n"; }
+            //else if (Players > currentRoom.PlayerCount)
+            //{
+
+            //    info += "\n";
+            //}
 
             return info;
 
@@ -225,7 +256,7 @@ namespace Server
         public string Process(string Key, Player player, int PlayerID)
         {
             currentRoom = player.currentRoom; // Sets current room to the players current room
-            DungeonInfo(player); // Displays the dungeon info to player
+            DungeonInfo(player, false); // Displays the dungeon info to player
             String returnString = ""; 
             var input = Key.Split(' ');
 
@@ -258,7 +289,7 @@ namespace Server
                 case "look":
                     //Console.Clear();
                     Thread.Sleep(500);
-                    returnString = DungeonInfo(player);
+                    returnString = DungeonInfo(player, false);
                     return returnString;
 
                 case "local":
@@ -285,6 +316,7 @@ namespace Server
                     return returnString;
 
                 case "go":
+                    bool error = false;
                     if ((input[1].ToLower() == "north") && (currentRoom.north != null))
                     {
                         player.currentRoom = roomMap[currentRoom.north];
@@ -313,12 +345,16 @@ namespace Server
                                     returnString += ("\nERROR");
                                     returnString += ("\nCan not go " + input[1]+ " from here");
                                     returnString += ("\nPress any key to continue");
-
+                                    error = true;
                                 }
                             }
                         }
                     }
-                    returnString += DungeonInfo(player);
+                    if (!error)
+                    {
+                        roomUpdate(player, currentRoom);
+                    }
+                    returnString += DungeonInfo(player, true);
                     return returnString;
 
                 default:

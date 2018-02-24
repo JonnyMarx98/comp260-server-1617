@@ -42,6 +42,7 @@ namespace Server
         public String desc = "";
         public String[] exits = new String[4];
         public static String[] exitNames = { "NORTH", "SOUTH", "EAST", "WEST" };
+        public int PlayerCount = 0;
     }
 
 }
