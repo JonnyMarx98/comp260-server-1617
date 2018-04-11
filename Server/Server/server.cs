@@ -183,7 +183,7 @@ namespace Server
 
             dungeon.Init(); // Initialise Dungeon
 
-            string ipAdress = "127.0.0.1";
+            string ipAdress = "138.68.173.44";
             int port = 8221;
 
             Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
