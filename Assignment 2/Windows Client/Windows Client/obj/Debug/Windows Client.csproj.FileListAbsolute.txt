@@ -1,0 +1,20 @@
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.exe.config
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.exe
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.pdb
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csprojResolveAssemblyReference.cache
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Part_03_FormClient.Form1.resources
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\FormClient.Properties.Resources.resources
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csproj.GenerateResource.Cache
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csproj.CoreCompileInputs.cache
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Form Client.exe
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Form Client.pdb
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.exe.config
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.exe
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\bin\Debug\Form Client.pdb
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csprojResolveAssemblyReference.cache
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Part_03_FormClient.Form1.resources
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\FormClient.Properties.Resources.resources
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csproj.GenerateResource.cache
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Windows Client.csproj.CoreCompileInputs.cache
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Form Client.exe
+D:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 09\client-server review\Windows Client\Windows Client\obj\Debug\Form Client.pdb

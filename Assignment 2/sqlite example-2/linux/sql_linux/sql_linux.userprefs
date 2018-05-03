@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="sql_linux/sql_linux.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../sql_example.cs">
+    <Files>
+      <File FileName="sql_linux/Program.cs" Line="1" Column="1" />
+      <File FileName="../../sql_example.cs" Line="19" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
