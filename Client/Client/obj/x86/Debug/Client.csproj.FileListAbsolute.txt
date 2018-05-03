@@ -46,3 +46,9 @@ D:\comp260-server-1617JonDog\Client\Client\obj\x86\Debug\Client.csprojResolveAss
 D:\comp260-server-1617JonDog\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
 D:\comp260-server-1617JonDog\Client\Client\obj\x86\Debug\Client.exe
 D:\comp260-server-1617JonDog\Client\Client\obj\x86\Debug\Client.pdb
+E:\comp260ServerShit\Client\Client\bin\Debug\Client.exe
+E:\comp260ServerShit\Client\Client\bin\Debug\Client.pdb
+E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
+E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.exe
+E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.pdb

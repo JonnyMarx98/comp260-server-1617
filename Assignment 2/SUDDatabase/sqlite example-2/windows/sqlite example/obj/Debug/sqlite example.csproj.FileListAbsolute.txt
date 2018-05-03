@@ -46,3 +46,19 @@ D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite 
 D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
 D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
 D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe.config
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.pdb
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.dll
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.xml
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.exe
+E:\comp260ServerShit\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.pdb

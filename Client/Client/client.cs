@@ -42,7 +42,7 @@ namespace Client
         static void Main(string[] args)
         {
 
-            string ipAdress = "138.68.173.44";
+            string ipAdress = "127.0.0.1"; //"138.68.173.44";
             int port = 8221;
             //
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

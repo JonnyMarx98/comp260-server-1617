@@ -6,6 +6,11 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 
+using System.Data.SQLite;
+using sqliteConnection = System.Data.SQLite.SQLiteConnection;
+using sqliteCommand = System.Data.SQLite.SQLiteCommand;
+using sqliteDataReader = System.Data.SQLite.SQLiteDataReader;
+
 namespace Server
 {
     public class server
@@ -183,7 +188,7 @@ namespace Server
 
             dungeon.Init(); // Initialise Dungeon
 
-            string ipAdress = "138.68.173.44";
+            string ipAdress = "127.0.0.1"; //"138.68.173.44";
             int port = 8221;
 
             Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

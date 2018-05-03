@@ -1,0 +1,64 @@
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe.config
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.pdb
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.dll
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.xml
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.exe
+F:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\Lecture 10\code\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.pdb
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.exe
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.pdb
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe.config
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.pdb
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.dll
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.xml
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+J:\Other\Computing for Games\Year 2\Second Semester\COMP260 - Distributed Systems\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.exe
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\obj\Debug\sqlite example.pdb
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe.config
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.exe
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\sqlite example.pdb
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.dll
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.xml
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+D:\comp260-server-1617\Assignment 2\SUDDatabase\sqlite example-2\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe.config
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\sqlite example.pdb
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\EntityFramework.dll
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\EntityFramework.xml
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+E:\comp260ServerShit\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.exe
+E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.pdb

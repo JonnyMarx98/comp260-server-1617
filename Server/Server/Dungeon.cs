@@ -4,17 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
+//#if TARGET_LINUX
+//using Mono.Data.Sqlite;
+//using sqliteConnection 	=Mono.Data.Sqlite.SqliteConnection;
+//using sqliteCommand 	=Mono.Data.Sqlite.SqliteCommand;
+//using sqliteDataReader	=Mono.Data.Sqlite.SqliteDataReader;
+//#endif
+
+//#if TARGET_WINDOWS
+using System.Data.SQLite;
+using sqliteConnection = System.Data.SQLite.SQLiteConnection;
+using sqliteCommand = System.Data.SQLite.SQLiteCommand;
+using sqliteDataReader = System.Data.SQLite.SQLiteDataReader;
+//#endif
+
 namespace Server
 {
     public class Dungeon
-    {        
-        public Dictionary<String, Room> roomMap;
+    {
+        //public Dictionary<String, Room> roomMap;
 
-        Room currentRoom;
+        sqliteConnection conn = null;
+        string databaseName = "data.database";
+
+        string currentRoom;
 
         public void Init()
         {
-            roomMap = new Dictionary<string, Room>();
+            var roomMap = new Dictionary<string, Room>();
             {
                 var room = new Room("Room 0", "You are standing in the entrance hall\nAll adventures start here");
                 room.north = "Room 1";
@@ -173,10 +190,78 @@ namespace Server
                 roomMap.Add(room.name, room);
             }
 
-            currentRoom = roomMap["Room 0"];
+            //currentRoom = roomMap["Room 0"];
+            try
+            {
+                sqliteConnection.CreateFile(databaseName);
+
+                conn = new sqliteConnection("Data Source=" + databaseName + ";Version=3;FailIfMissing=True");
+
+                sqliteCommand command;
+
+                conn.Open();
+
+                command = new sqliteCommand("create table table_rooms (name varchar(20), desc varchar(20), north varchar(20), south varchar(20), west varchar(20), east varchar(20))", conn);
+                command.ExecuteNonQuery();
+
+                foreach (var kvp in roomMap)
+                {
+                    try
+                    {
+                        var sql = "insert into " + "table_rooms" + " (name, desc, north, south, west, east) values ";
+                        sql += "('" + kvp.Key + "'";
+                        sql += ",";
+                        sql += "'" + kvp.Value.desc + "'";
+                        sql += ",";
+                        sql += "'" + kvp.Value.north + "'";
+                        sql += ",";
+                        sql += "'" + kvp.Value.south + "'";
+                        sql += ",";
+                        sql += "'" + kvp.Value.west + "'";
+                        sql += ",";
+                        sql += "'" + kvp.Value.east + "'";
+                        sql += ")";
+
+                        command = new sqliteCommand(sql, conn);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Failed to add room" + ex);
+                    }
+                }
+
+                //command = new SQLiteCommand("drop table table_phonenumbers", conn);
+                try
+                {
+                    Console.WriteLine("");
+                    command = new sqliteCommand("select * from " + "table_rooms" + " order by name asc", conn);
+                    var reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("Name: " + reader["name"] + "Exits: " + reader["north"] + reader["south"] + reader["west"] + reader["east"]);
+                    }
+
+                    reader.Close();
+                    Console.WriteLine("");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to display DB");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Create DB failed: " + ex);
+            }
+
+            currentRoom = "Room 0";
+
         }
 
-        public void roomUpdate(Player currentPlayer, Room previousRoom)
+        public void roomUpdate(Player currentPlayer, string previousRoom)
         {
             foreach (Player player in server.PlayerList)
             {
@@ -189,57 +274,82 @@ namespace Server
 
         public String DungeonInfo(Player currentPlayer, bool enteredNewRoom)
         {
-            currentRoom = currentPlayer.currentRoom;
-            
             String info = "";
-            bool newPlayer = false;
-            if (enteredNewRoom)
+            currentRoom = currentPlayer.currentRoom;
+
+            var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
+            var reader = command.ExecuteReader();
+
+            while (reader.Read())
             {
-                currentRoom.PlayerCount += 1;
-                newPlayer = true;
-                info += currentRoom.desc;
-                info += "\nExits\n";
-                for (var i = 0; i < currentRoom.exits.Length; i++)
+                info += (reader["desc\n"]);
+                info += ("Exits\n");
+
+                String[] temp = { "north", "south", "east", "west" };
+
+                for (var i = 0; i < temp.Length; i++)
                 {
-                    if (currentRoom.exits[i] != null)
+                    string result = reader[temp[i]] as String;
+
+
+                    if (result != "")
                     {
-                        info += (Room.exitNames[i] + " ");
+                        info += (reader[temp[i]] + " " + temp[i] + "\n");
                     }
                 }
             }
+
+            info += ("\n> ");
+
+            //String info = "";
+            //bool newPlayer = false;
+            //if (enteredNewRoom)
+            //{
+            //    //currentRoom.PlayerCount += 1;
+            //    newPlayer = true;
+            //    info += currentRoom.desc;
+            //    info += "\nExits\n";
+            //    for (var i = 0; i < currentRoom.exits.Length; i++)
+            //    {
+            //        if (currentRoom.exits[i] != null)
+            //        {
+            //            info += (Room.exitNames[i] + " ");
+            //        }
+            //    }
+            //}
 
             int Players = 1;
             
-            foreach (Player player in server.PlayerList)
-            {
+            //foreach (Player player in server.PlayerList)
+            //{
                 
-                if (currentPlayer.currentRoom == player.currentRoom)
-                {                   
-                    if (player != currentPlayer)
-                    {
+            //    if (currentPlayer.currentRoom == player.currentRoom)
+            //    {                   
+            //        if (player != currentPlayer)
+            //        {
                         
-                        Players++;
-                        if (Players == 2)
-                        {
-                            info += "\nOther players here ->";
-                            info += " [" + player.playerName + "]";
-                            if (newPlayer)
-                            {
-                                server.roomUpdate(player, currentPlayer, true);
+            //            Players++;
+            //            if (Players == 2)
+            //            {
+            //                info += "\nOther players here ->";
+            //                info += " [" + player.playerName + "]";
+            //                if (newPlayer)
+            //                {
+            //                    server.roomUpdate(player, currentPlayer, true);
 
-                            }
-                        }
-                        else
-                        {
-                            info += " [" + player.playerName + "]";
-                            if (newPlayer)
-                            {
-                                server.roomUpdate(player, currentPlayer, true);
-                            }
-                        }
-                    }
-                }
-            }
+            //                }
+            //            }
+            //            else
+            //            {
+            //                info += " [" + player.playerName + "]";
+            //                if (newPlayer)
+            //                {
+            //                    server.roomUpdate(player, currentPlayer, true);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
             if (Players == 1) { info += "\nYou're alone!\n"; }
             else { info+= "\n"; }
@@ -270,7 +380,7 @@ namespace Server
                     returnString += ("\ngo [north | south | east | west]  - to travel between locations");
                     returnString += ("\nPress any key to continue");
                     returnString += ("\nname - to set name your name");
-                    returnString += ("\n" + currentRoom.desc);
+                   // returnString += ("\n" + currentRoom.desc);
                     returnString += ("\nExits");
 
                     //returnString += DungeonInfo(player);
@@ -316,40 +426,96 @@ namespace Server
                     return returnString;
 
                 case "go":
-                    bool error = false;
-                    if ((input[1].ToLower() == "north") && (currentRoom.north != null))
+
+                    var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
+                    var reader = command.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        player.currentRoom = roomMap[currentRoom.north];
-                    }
-                    else
-                    {
-                        if ((input[1].ToLower() == "south") && (currentRoom.south != null))
+                        Console.WriteLine("Name: " + reader["name"] + "\tdesc: " + reader["desc"]);
+                        Console.WriteLine(reader["desc"]);
+                        Console.WriteLine("Exits");
+
+                        String[] temp = { "north", "south", "east", "west" };
+
+                        for (var i = 0; i < temp.Length; i++)
                         {
-                            player.currentRoom = roomMap[currentRoom.south];
+                            if (reader[temp[i]] != null)
+                            {
+                                Console.Write(reader[temp[i]] + " ");
+                            }
+                        }
+
+                        if ((input[1].ToLower() == "north") && (reader["north"] != null))
+                        {
+                            currentRoom = reader["north"].ToString();
                         }
                         else
                         {
-                            if ((input[1].ToLower() == "east") && (currentRoom.east != null))
+                            if ((input[1].ToLower() == "south") && (reader["south"] != null))
                             {
-                                player.currentRoom = roomMap[currentRoom.east];
+                                currentRoom = reader["south"].ToString();
                             }
                             else
                             {
-                                if ((input[1].ToLower() == "west") && (currentRoom.west != null))
+                                if ((input[1].ToLower() == "east") && (reader["east"] != null))
                                 {
-                                    player.currentRoom = roomMap[currentRoom.west];
+                                    currentRoom = reader["east"].ToString();
                                 }
                                 else
                                 {
-                                    //handle error
-                                    returnString += ("\nERROR");
-                                    returnString += ("\nCan not go " + input[1]+ " from here");
-                                    returnString += ("\nPress any key to continue");
-                                    error = true;
+                                    if ((input[1].ToLower() == "west") && (reader["west"] != null))
+                                    {
+                                        currentRoom = reader["west"].ToString();
+                                    }
+                                    else
+                                    {
+                                        //handle error
+                                        Console.WriteLine("\nERROR");
+                                        Console.WriteLine("\nCan not go " + input[1] + " from here");
+                                        Console.WriteLine("\nPress any key to continue");
+                                        Console.ReadKey(true);
+                                    }
                                 }
                             }
                         }
+
                     }
+
+                    bool error = false;
+                    //if ((input[1].ToLower() == "north") && (currentRoom.north != null))
+                    //{
+                    //    player.currentRoom = roomMap[currentRoom.north];
+                    //}
+                    //else
+                    //{
+                    //    if ((input[1].ToLower() == "south") && (currentRoom.south != null))
+                    //    {
+                    //        player.currentRoom = roomMap[currentRoom.south];
+                    //    }
+                    //    else
+                    //    {
+                    //        if ((input[1].ToLower() == "east") && (currentRoom.east != null))
+                    //        {
+                    //            player.currentRoom = roomMap[currentRoom.east];
+                    //        }
+                    //        else
+                    //        {
+                    //            if ((input[1].ToLower() == "west") && (currentRoom.west != null))
+                    //            {
+                    //                player.currentRoom = roomMap[currentRoom.west];
+                    //            }
+                    //            else
+                    //            {
+                    //                //handle error
+                    //                returnString += ("\nERROR");
+                    //                returnString += ("\nCan not go " + input[1]+ " from here");
+                    //                returnString += ("\nPress any key to continue");
+                    //                error = true;
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     if (!error)
                     {
                         roomUpdate(player, currentRoom);
