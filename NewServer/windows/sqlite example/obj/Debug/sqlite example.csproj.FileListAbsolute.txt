@@ -62,3 +62,19 @@ E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.c
 E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
 E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.exe
 E:\comp260ServerShit\NewServer\windows\sqlite example\obj\Debug\sqlite example.pdb
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe.config
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\sqlite example.pdb
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\EntityFramework.dll
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\EntityFramework.xml
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.exe
+D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.pdb

@@ -96,7 +96,7 @@ namespace Server
             }
 
             {
-                var room = new Room("Room 9", "You are in room 9, lol you're trapped");
+                var room = new Room("Room 9", "You are in room 9, lol you are trapped");
                 roomMap.Add(room.name, room);
             }
 
@@ -173,7 +173,7 @@ namespace Server
 
             {
                 var room = new Room("Room 20", "You are in room 20");
-                room.west = "Secret Room";
+                room.west = "Room 22";
                 room.south = "Room 21";
                 roomMap.Add(room.name, room);
             }
@@ -286,23 +286,8 @@ namespace Server
 
             while (reader.Read())
             {
-                info += (reader["desc"]) + "/n";
-                info += ("Exits\n");
-
                 String[] temp = { "north", "south", "east", "west" };
-
-                for (var i = 0; i < temp.Length; i++)
-                {
-                    string result = reader[temp[i]] as String;
-
-
-                    if (result != "")
-                    {
-                        info += (reader[temp[i]] + " " + temp[i] + "\n");
-                    }
-                }
-
-                
+               
                 if (enteredNewRoom)
                 {
                     //currentRoom.PlayerCount += 1;
@@ -358,11 +343,6 @@ namespace Server
 
             if (Players == 1) { info += "\nYou're alone!\n"; }
             else { info+= "\n"; }
-            //else if (Players > currentRoom.PlayerCount)
-            //{
-
-            //    info += "\n";
-            //}
 
             return info;
 
@@ -371,6 +351,8 @@ namespace Server
         public string Process(string Key, Player player, int PlayerID)
         {
             currentRoom = player.currentRoom; // Sets current room to the players current room
+            var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
+            var reader = command.ExecuteReader();
             DungeonInfo(player, false); // Displays the dungeon info to player
             String returnString = ""; 
             var input = Key.Split(' ');
@@ -385,7 +367,9 @@ namespace Server
                     returnString += ("\ngo [north | south | east | west]  - to travel between locations");
                     returnString += ("\nPress any key to continue");
                     returnString += ("\nname - to set name your name");
-                   // returnString += ("\n" + currentRoom.desc);
+                    returnString += ("\nsay - global chat");
+                    returnString += ("\nlocal - local chat");
+                    // returnString += ("\n" + currentRoom.desc);
                     returnString += ("\nExits");
 
                     //returnString += DungeonInfo(player);
@@ -432,24 +416,24 @@ namespace Server
 
                 case "go":
 
-                    var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
-                    var reader = command.ExecuteReader();
+                    //var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
+                    //var reader = command.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        returnString += ("Name: " + reader["name"] + "\tdesc: " + reader["desc"]); returnString += "\n";
-                        returnString += (reader["desc"]); returnString += "\n";
-                        returnString += ("Exits"); returnString += "\n";
+                        //returnString += ("Name: " + reader["name"] + "\tdesc: " + reader["desc"]); returnString += "\n";
+                        //returnString += (reader["desc"]); returnString += "\n";
+                        //returnString += ("Exits"); returnString += "\n";
 
-                        String[] temp = { "north", "south", "east", "west" };
+                        //String[] temp = { "north", "south", "east", "west" };
 
-                        for (var i = 0; i < temp.Length; i++)
-                        {
-                            if (reader[temp[i]] != null)
-                            {
-                                returnString += (reader[temp[i]] + " ");
-                            }
-                        }
+                        //for (var i = 0; i < temp.Length; i++)
+                        //{
+                        //    if (reader[temp[i]] != null)
+                        //    {
+                        //        returnString += (reader[temp[i]] + " ");
+                        //    }
+                        //}
 
                         
 
@@ -486,14 +470,21 @@ namespace Server
                                 }
                             }
                         }
+                        player.currentRoom = currentRoom;
+                        bool error = false;
+                        if (!error)
+                        {
+                            roomUpdate(player, currentRoom);
+                            //DungeonInfo(player, false);
+                        }
 
                     }
 
-                    bool error = false;
-                    if (!error)
-                    {
-                        roomUpdate(player, currentRoom);
-                    }
+                    //bool error = false;
+                    //if (!error)
+                    //{
+                    //    roomUpdate(player, currentRoom);
+                    //}
                     returnString += DungeonInfo(player, true);
                     return returnString;
 
