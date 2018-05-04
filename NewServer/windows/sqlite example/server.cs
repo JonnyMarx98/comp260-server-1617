@@ -78,15 +78,6 @@ namespace Server
                     {
                         outMessages.AddLast(clientName + ":" + dungeonResult);
                     }
-
-                    //lock (outMessages)
-                    //{
-                    //    foreach (KeyValuePair<String, Socket> client in clientDictionary)
-                    //    {
-                    //        outMessages.AddLast(client.Key + ":" + dungeonResult);
-                    //    }
-                    //}
-                    //Thread.Sleep(500);
                     ID++;
                 }
             }
@@ -238,19 +229,26 @@ namespace Server
 
                     }
                 }
-
-                if (msgToSend != "")
+                try
                 {
-                    String[] substrings = msgToSend.Split(':');
-                    string theClient = substrings[0];
-                    string clientMsg = substrings[1];
+                    if (msgToSend != "")
+                    {
+                        String[] substrings = msgToSend.Split(':');
+                        string theClient = substrings[0];
+                        string clientMsg = substrings[1];
 
-                    byte[] sendBuffer = encoder.GetBytes(clientMsg); // Send result back to client
+                        byte[] sendBuffer = encoder.GetBytes(clientMsg); // Send result back to client
 
-                    int bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
+                        int bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
 
-                    bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
+                        bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Client disconnected.. \n" + ex);
+                }
+                
 
                 if (currentMsg != "")
                 {

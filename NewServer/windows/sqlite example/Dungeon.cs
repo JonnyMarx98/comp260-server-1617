@@ -22,13 +22,13 @@ namespace Server
 {
     public class Dungeon
     {
-        //public Dictionary<String, Room> roomMap;
 
         sqliteConnection conn = null;
         string databaseName = "data.database";
 
         string currentRoom;
 
+        // Create Dungeon map
         public void Init()
         {
             var roomMap = new Dictionary<string, Room>();
@@ -190,20 +190,24 @@ namespace Server
                 roomMap.Add(room.name, room);
             }
 
-            //currentRoom = roomMap["Room 0"];
+            // Creates database
             try
             {
                 sqliteConnection.CreateFile(databaseName);
 
+                // create connection
                 conn = new sqliteConnection("Data Source=" + databaseName + ";Version=3;FailIfMissing=True");
 
                 sqliteCommand command;
 
+                // open connection
                 conn.Open();
-
+                
+                // Creates room table 
                 command = new sqliteCommand("create table table_rooms (name varchar(2000), desc varchar(2000), north varchar(200), south varchar(200), west varchar(200), east varchar(200))", conn);
                 command.ExecuteNonQuery();
 
+                // Adds rooms to database
                 foreach (var kvp in roomMap)
                 {
                     try
@@ -230,8 +234,6 @@ namespace Server
                         Console.WriteLine("Failed to add room\n" + ex);
                     }
                 }
-
-                //command = new SQLiteCommand("drop table table_phonenumbers", conn);
                 try
                 {
                     Console.WriteLine("");

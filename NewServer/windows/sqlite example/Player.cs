@@ -15,7 +15,6 @@ namespace Server
         public void Init()
         {
             currentRoom = "Room 0";
-            //Console.WriteLine("here");
         }
     }
 }
