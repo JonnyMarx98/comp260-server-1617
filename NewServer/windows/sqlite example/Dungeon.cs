@@ -234,8 +234,9 @@ namespace Server
                         Console.WriteLine("Failed to add room\n" + ex);
                     }
                 }
+                // display the database to server console
                 try
-                {
+                {   
                     Console.WriteLine("");
                     command = new sqliteCommand("select * from " + "table_rooms" + " order by name asc", conn);
                     var reader = command.ExecuteReader();
@@ -263,7 +264,7 @@ namespace Server
             currentRoom = "Room 0";
 
         }
-
+         // Update room for each player
         public void roomUpdate(Player currentPlayer, string previousRoom)
         {
             foreach (Player player in server.PlayerList)
@@ -274,7 +275,7 @@ namespace Server
                 }
             }
         }
-
+        // Info to send to player
         public String DungeonInfo(Player currentPlayer, bool enteredNewRoom)
         {
             String info = "";
@@ -312,6 +313,7 @@ namespace Server
 
             int Players = 1;
 
+            // checks what other players are in same room
             foreach (Player player in server.PlayerList)
             {
 
@@ -371,12 +373,10 @@ namespace Server
                     returnString += ("\nname - to set name your name");
                     returnString += ("\nsay - global chat");
                     returnString += ("\nlocal - local chat");
-                    // returnString += ("\n" + currentRoom.desc);
                     returnString += ("\nExits");
-
-                    //returnString += DungeonInfo(player);
                     return returnString;
 
+                // Set name
                 case "name":
                     String newName = "";
                     for (var i = 1; i < input.Length; i++)
@@ -401,11 +401,9 @@ namespace Server
                     }
 
                     Thread.Sleep(1000);
-                    //returnString += DungeonInfo(player);
                     return returnString;
 
                 case "say":
-                    //returnString += ("[Player " + PlayerID + "]");
                     returnString += ("[global][" + player.playerName + "]");
                     for (var i = 1; i < input.Length; i++)
                     {
@@ -418,26 +416,8 @@ namespace Server
 
                 case "go":
 
-                    //var command = new sqliteCommand("select * from  table_rooms where name == '" + currentRoom + "'", conn);
-                    //var reader = command.ExecuteReader();
-
                     while (reader.Read())
                     {
-                        //returnString += ("Name: " + reader["name"] + "\tdesc: " + reader["desc"]); returnString += "\n";
-                        //returnString += (reader["desc"]); returnString += "\n";
-                        //returnString += ("Exits"); returnString += "\n";
-
-                        //String[] temp = { "north", "south", "east", "west" };
-
-                        //for (var i = 0; i < temp.Length; i++)
-                        //{
-                        //    if (reader[temp[i]] != null)
-                        //    {
-                        //        returnString += (reader[temp[i]] + " ");
-                        //    }
-                        //}
-
-                        
 
                         if ((input[1].ToLower() == "north") && (reader["north"] != null))
                         {
@@ -477,16 +457,9 @@ namespace Server
                         if (!error)
                         {
                             roomUpdate(player, currentRoom);
-                            //DungeonInfo(player, false);
                         }
 
                     }
-
-                    //bool error = false;
-                    //if (!error)
-                    //{
-                    //    roomUpdate(player, currentRoom);
-                    //}
                     returnString += DungeonInfo(player, true);
                     return returnString;
 

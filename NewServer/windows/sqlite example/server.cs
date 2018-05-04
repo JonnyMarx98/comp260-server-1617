@@ -229,26 +229,27 @@ namespace Server
 
                     }
                 }
-                try
+                if (msgToSend != "")
                 {
-                    if (msgToSend != "")
+                    String[] substrings = msgToSend.Split(':');
+                    string theClient = substrings[0];
+                    string clientMsg = substrings[1];
+
+                    byte[] sendBuffer = encoder.GetBytes(clientMsg); // Send result back to client
+                    
+                    try
                     {
-                        String[] substrings = msgToSend.Split(':');
-                        string theClient = substrings[0];
-                        string clientMsg = substrings[1];
-
-                        byte[] sendBuffer = encoder.GetBytes(clientMsg); // Send result back to client
-
                         int bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
-
                         bytesSent = GetSocketFromName(theClient).Send(sendBuffer);
                     }
+                    catch (Exception ex)
+                    {
+                        GetSocketFromName(theClient).Close();
+                        Console.WriteLine("Client disconnected.. \n" + ex);
+                       
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Client disconnected.. \n" + ex);
-                }
-                
+
 
                 if (currentMsg != "")
                 {
