@@ -78,3 +78,19 @@ D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite exa
 D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
 D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.exe
 D:\comp260-serverShitJonny\NewServer\windows\sqlite example\obj\Debug\sqlite example.pdb
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe.config
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\sqlite example.exe
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\sqlite example.pdb
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\EntityFramework.dll
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.dll
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\EntityFramework.xml
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\EntityFramework.SqlServer.xml
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.xml
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\bin\Debug\System.Data.SQLite.dll.config
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\obj\Debug\sqlite example.csprojResolveAssemblyReference.cache
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\obj\Debug\sqlite example.csproj.CoreCompileInputs.cache
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\obj\Debug\sqlite example.exe
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\windows\sqlite example\obj\Debug\sqlite example.pdb
