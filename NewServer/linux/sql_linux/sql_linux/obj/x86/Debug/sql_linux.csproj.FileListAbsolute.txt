@@ -1,0 +1,2 @@
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\linux\sql_linux\sql_linux\obj\x86\Debug\sql_linux.csprojResolveAssemblyReference.cache
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\NewServer\linux\sql_linux\sql_linux\obj\x86\Debug\sql_linux.csproj.CoreCompileInputs.cache
