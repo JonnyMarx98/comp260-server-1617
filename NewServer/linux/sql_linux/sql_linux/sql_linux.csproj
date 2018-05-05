@@ -43,6 +43,7 @@
       <Link>sql_example.cs</Link>
     </Compile>
     <Compile Include="Room.cs" />
+    <Compile Include="server.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
