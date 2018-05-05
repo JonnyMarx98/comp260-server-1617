@@ -52,3 +52,9 @@ E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyRef
 E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
 E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.exe
 E:\comp260ServerShit\Client\Client\obj\x86\Debug\Client.pdb
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\bin\Debug\Client.exe
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\bin\Debug\Client.pdb
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\obj\x86\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\obj\x86\Debug\Client.exe
+D:\Uni\2nd Year\Comp260\comp260-server-1617FINAL\Client\Client\obj\x86\Debug\Client.pdb

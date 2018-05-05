@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="sql_linux/sql_linux.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../sql_example.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="sql_linux/server.cs">
     <Files>
       <File FileName="sql_linux/Program.cs" Line="1" Column="1" />
       <File FileName="../../sql_example.cs" Line="19" Column="7" />
+      <File FileName="sql_linux/server.cs" Line="197" Column="1" />
+      <File FileName="sql_linux/Dungeon.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

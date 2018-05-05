@@ -1,0 +1,5 @@
+/home/jonny/comp260-server-1617/NewServer/linux/sql_linux/sql_linux/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/jonny/comp260-server-1617/NewServer/linux/sql_linux/sql_linux/bin/Debug/sql_linux.exe.mdb
+/home/jonny/comp260-server-1617/NewServer/linux/sql_linux/sql_linux/bin/Debug/sql_linux.exe
+/home/jonny/comp260-server-1617/NewServer/linux/sql_linux/sql_linux/obj/x86/Debug/sql_linux.exe
+/home/jonny/comp260-server-1617/NewServer/linux/sql_linux/sql_linux/obj/x86/Debug/sql_linux.exe.mdb

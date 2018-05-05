@@ -291,7 +291,7 @@ namespace Server
             {
                 String[] temp = { "north", "south", "east", "west" };
                
-                if (enteredNewRoom)
+				if (enteredNewRoom)
                 {
                     //currentRoom.PlayerCount += 1;
                     newPlayer = true;
@@ -390,7 +390,7 @@ namespace Server
                 case "look":
                     //Console.Clear();
                     Thread.Sleep(500);
-                    returnString = DungeonInfo(player, false);
+                    returnString = DungeonInfo(player, true);
                     return returnString;
 
                 case "local":
@@ -453,11 +453,15 @@ namespace Server
                             }
                         }
                         player.currentRoom = currentRoom;
-                        bool error = false;
-                        if (!error)
-                        {
-                            roomUpdate(player, currentRoom);
-                        }
+						
+                       // bool error = false;
+                        //if (!error)
+                       // {
+                       //     roomUpdate(player, currentRoom);
+                       // }
+						//returnString = DungeonInfo(player, true);
+						roomUpdate(player, currentRoom);
+						return returnString;
 
                     }
                     returnString += DungeonInfo(player, true);
